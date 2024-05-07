@@ -1,0 +1,20 @@
+<!-- src/main/resources/templates/moviedetails.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${movie.title}">Movie Title</h1>
+    <img th:src="${movie.posterPath}" alt="Movie Poster" class="img-fluid mb-4">
+    <p th:text="${movie.overview}">Movie Overview</p>
+    <a href="/movies" class="btn btn-primary">Back to List</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

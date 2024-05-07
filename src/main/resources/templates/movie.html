@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Movie Details</title>
+</head>
+<body>
+<h1>Movie Details</h1>
+<p th:text="${movieDetails}"></p>
+<form action="/movies/save" method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea>
+    <button type="submit">Save</button>
+</form>
+<p th:text="${message}"></p>
+</body>
+</html>
