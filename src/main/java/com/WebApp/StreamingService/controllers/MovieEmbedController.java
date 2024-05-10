@@ -8,15 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @RestController
-@CrossOrigin(origins="*")
+
 @RequestMapping("/api/movies")
 public class MovieEmbedController {
 
     private final MovieEmbedService movieEmbedService;
 
-    @GetMapping("/embed")
-    public ResponseEntity<String> getMovieEmbedUrl(@RequestParam String imdbId) {
-
+    @GetMapping("/embed/{imdbId}")
+    public ResponseEntity<String> getMovieEmbedUrl(@PathVariable String imdbId) {
         String embedUrl = movieEmbedService.constructMovieEmbedUrl(imdbId);
         return ResponseEntity.ok(embedUrl);
     }

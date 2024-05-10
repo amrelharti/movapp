@@ -7,11 +7,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 public class MovieEmbedService {
 
-    public String constructMovieEmbedUrl(String imdbId) {
-
-        String embedUrl = UriComponentsBuilder.fromHttpUrl(ApiConfiguration.BASE_URL)
-                .queryParam("imdbId", imdbId)
-                .toUriString();
-        return embedUrl;
-    }
+        public String constructMovieEmbedUrl(String imdbId) {
+            return "https://vidsrc.xyz/embed/movie/" + imdbId;
+        }
 }
