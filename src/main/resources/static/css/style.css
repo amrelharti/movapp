@@ -1,30 +1,52 @@
-.movie-container {
-    display: flex;
-    flex-wrap: wrap;
+body {
+    background-color: #1f232c; /* A warm, light beige color */
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    background-color: #000000; /* A warm reddish-brown color */
+    border-bottom: 3px solid #8fd1e3; /* A darker shade for depth */
+}
+
+.navbar-brand {
+    color: #fff !important;
+}
+
+.btn-outline-success {
+    margin-left: 20px;
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: #fff;
 }
 
 .movie-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin: 15px; /* Adjusted margin for spacing */
 }
 
-.movie-card a {
-    text-decoration: none;
-    color: #000;
+.movie-card:hover {
+    transform: scale(1.05); /* More noticeable scale on hover */
+    box-shadow: 0 0 15px rgba(50,50,50,.2); /* Enhanced shadow for depth */
 }
 
-.movie-card h2 {
-    font-size: 1.2em;
-    margin: 0;
-    padding: 0;
+.card-img-top {
+    width: 100%;
+    height: 300px; /* Increased height for a larger display */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
 }
 
-.movie-card p {
-    margin: 5px 0 0 0;
-    padding: 0;
+.card-body h4 {
+    font-size: 1.4em; /* Slightly larger text for the title */
+    color: #8ddef5; /* Maintaining thematic blue for titles */
+}
+
+.card-body p {
+    font-size: 1em; /* Standard font size for descriptions */
+    color: #666; /* Maintained lighter text color for readability */
 }

@@ -1,5 +1,6 @@
 package com.WebApp.StreamingService.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,10 +20,11 @@ import java.util.List;
 public abstract class Media {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    @JsonProperty("imdb_id")
+    private String imdbId;
     private String title;
     private String description;
-    private Date release_date;
+    private Date year;
     private long id_genre;
     private long id_actor;
     private long id_director;

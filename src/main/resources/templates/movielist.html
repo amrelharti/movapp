@@ -1,27 +1,39 @@
-<!-- src/main/resources/templates/movielist.html -->
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Movie List</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css"> <!-- Update this path as necessary -->
 </head>
 <body>
-<div class="container">
-    <h1 class="my-4">Movies</h1>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">Movie Explorer</a>
+        <form class="d-flex ml-auto" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search movies..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<div class="container mt-4">
+    <h1 style="color: white">Movies</h1>
     <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4" th:each="movie : ${movies}">
-            <div class="card h-100">
-                <img class="card-img-top" th:src="${movie.posterPath}" alt="Movie Poster">
+        <div th:each="movie : ${movies}" class="col-lg-3 col-md-4 col-sm-6">
+            <div class="movie-card">
+                <a th:href="@{/movies/details/{imdbId}(imdbId=${movie.imdbId})}">
+                    <img class="card-img-top" th:src="${movie.posterPath}" alt="Movie Poster">
+                </a>
                 <div class="card-body">
-                    <h4 class="card-title" th:text="${movie.title}">Movie Title</h4>
+                    <h4 class="card-title" th:text="${movie.title}"></h4>
+                    <p th:text="${movie.description}">Description not available</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

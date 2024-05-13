@@ -1,20 +1,31 @@
-<!-- src/main/resources/templates/moviedetails.html -->
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Movie Details</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title th:text="${movie.title}">Movie Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container">
-    <h1 th:text="${movie.title}">Movie Title</h1>
-    <img th:src="${movie.posterPath}" alt="Movie Poster" class="img-fluid mb-4">
-    <p th:text="${movie.overview}">Movie Overview</p>
-    <a href="/movies" class="btn btn-primary">Back to List</a>
+<div class="container mt-4">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img th:src="${movie.posterPath}" alt="Movie Poster" class="card-img">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${movie.title}">Movie Title</h5>
+                    <p class="card-text"><small class="text-muted" th:text="${movie.year}">Year</small></p>
+                    <p class="card-text" th:text="${movie.rating}">Rating</p>
+                    <p class="card-text" th:text="${movie.description}">Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/" class="btn btn-primary">Back to List</a>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

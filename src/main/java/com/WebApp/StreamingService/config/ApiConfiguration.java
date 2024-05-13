@@ -15,10 +15,8 @@ public class ApiConfiguration implements WebMvcConfigurer {
     public static final String BASE_URL = "https://vidsrc.xyz/embed/movie";
     public static final String IMDB_API_KEY = "2fa0c86253msh27c51dc8cf35e30p154ddejsnf23dbb811fa1";
     public static final String IMDB_API_HOST = "moviesminidatabase.p.rapidapi.com";
-    private static final String MOVIE_DB_BASE_URL = "https://api.themoviedb.org/3";
     public static final String IMDB_API_URL = "https://moviesminidatabase.p.rapidapi.com";
 
-    @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
@@ -43,10 +41,5 @@ public class ApiConfiguration implements WebMvcConfigurer {
         }
     }
 
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/movies")
-                .allowedOrigins("http://localhost:3000")
-                .allowedMethods("GET", "POST", "PUT", "DELETE");
-    }
+
 }
