@@ -34,14 +34,7 @@ public class ImdbService {
         return null;
     }
 
-   /* public List<Movie> fetchAllMovies() {
-        List<String> categories = Arrays.asList("popular", "now_playing", "upcoming", "top_rated");
-        List<Movie> movies = new ArrayList<>();
-        for (String category : categories) {
-            movies.addAll(fetchMoviesByCategory(category));
-        }
-        return movies;
-    }*/
+
 
 
     public List<Movie> fetchMoviesByCategory(String category, int page) {
