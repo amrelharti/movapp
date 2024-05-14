@@ -11,8 +11,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -147,6 +150,35 @@ public class ImdbService {
             e.printStackTrace();
         }
         return null;
+    }
+    public List<Movie> searchMovies(String query) {
+        String url = UriComponentsBuilder.fromHttpUrl("https://api.themoviedb.org/3/search/movie")
+                .queryParam("api_key", apiKey)
+                .queryParam("query", query)
+                .toUriString();
+
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, entity, Map.class);
+
+        if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
+            return extractMovies(response.getBody());
+        }
+        return Collections.emptyList();
+    }
+
+    private List<Movie> extractMovies(Map<String, Object> responseBody) {
+        List<Map<String, Object>> results = (List<Map<String, Object>>) responseBody.get("results");
+        return results.stream().map(this::convertToMovie).collect(Collectors.toList());
+    }
+
+    private Movie convertToMovie(Map<String, Object> movieData) {
+        return new Movie(
+                (String) movieData.get("title"),
+                "https://image.tmdb.org/t/p/w500" + movieData.get("poster_path"),
+                (String) movieData.get("release_date")
+
+        );
     }
 }
 

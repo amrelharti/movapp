@@ -1,0 +1,56 @@
+/* detailstyle.css */
+body {
+    background-color: #1f232c; /* Dark blue-grey background */
+    color: #fff; /* White text color for better readability on dark background */
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    background-color: #000000; /* Black navbar */
+    border-bottom: 3px solid #8fd1e3; /* Cyan border for a pop of color */
+}
+
+.navbar-brand {
+    color: #fff !important; /* Ensure brand name is white */
+}
+
+
+
+.card-img-top {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 450px; /* Maximum height to control the image size */
+    object-fit: cover; /* Cover the designated area nicely */
+}
+
+.card-body h2 {
+    font-size: 2em; /* Larger font size for the movie title */
+    color: #8ddef5; /* Light blue for the title, matching navbar details */
+}
+
+.card-body p {
+    font-size: 1em; /* Standard font size for text */
+    color: #ccc; /* Light grey text for better readability */
+}
+
+.back-link {
+    color: #8fd1e3; /* Cyan color for back link to match the navbar border */
+}
+
+
+
+.movie-details-container {
+    background-color: #343a40; /* Dark background for contrast */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.card-img-top {
+    max-height: 300px; /* Set a maximum height to control image size */
+    width: auto; /* Adjust width to maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the area nicely */
+}
+
+
