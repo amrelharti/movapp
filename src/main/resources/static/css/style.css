@@ -50,3 +50,6 @@ body {
     font-size: 1em; /* Standard font size for descriptions */
     color: #666; /* Maintained lighter text color for readability */
 }
+.page-link{
+    align-content: center;
+}

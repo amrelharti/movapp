@@ -3,10 +3,10 @@
 <head>
     <title>Movie List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css"> <!-- Update this path as necessary -->
+    <link rel="stylesheet" href="/css/style.css"> <!-- Ensure this CSS file contains your styles -->
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a href="/movies" class="navbar-brand">Movie Explorer</a>
         <form th:action="@{/movies/search}" method="get" class="form-inline">
@@ -20,15 +20,24 @@
     <div class="row">
         <div th:each="movie : ${movies}" class="col-lg-3 col-md-4 col-sm-6">
             <div class="movie-card">
-                <a th:href="@{/movies/details/{imdbId}(imdbId=${movie.imdbId})}">
+                <a th:href="@{'/movies/details/' + ${movie.imdbId}}">
                     <img class="card-img-top" th:src="${movie.posterPath}" alt="Movie Poster">
                 </a>
                 <div class="card-body">
                     <h4 class="card-title" th:text="${movie.title}"></h4>
-
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+        <ul class="pagination">
+            <li class="page-item" th:classappend="${currentPage == 1} ? 'disabled' : ''">
+                <a class="page-link" th:href="@{/movies(page=${currentPage - 1})}" th:unless="${currentPage == 1}">Previous</a>
+            </li>
+            <li class="page-item" th:classappend="${currentPage == totalPages} ? 'disabled' : ''">
+                <a class="page-link" th:href="@{/movies(page=${currentPage + 1})}" th:unless="${currentPage == totalPages}">Next</a>
+            </li>
+        </ul>
     </div>
 </div>
 

@@ -34,24 +34,29 @@ public class ImdbService {
         return null;
     }
 
-    public List<Movie> fetchAllMovies() {
+   /* public List<Movie> fetchAllMovies() {
         List<String> categories = Arrays.asList("popular", "now_playing", "upcoming", "top_rated");
         List<Movie> movies = new ArrayList<>();
         for (String category : categories) {
             movies.addAll(fetchMoviesByCategory(category));
         }
         return movies;
-    }
+    }*/
 
-    private List<Movie> fetchMoviesByCategory(String category) {
-        String url = "https://api.themoviedb.org/3/movie/" + category + "?api_key=" + apiKey;
+
+    public List<Movie> fetchMoviesByCategory(String category, int page) {
+        String url = UriComponentsBuilder.fromHttpUrl("https://api.themoviedb.org/3/movie/" + category)
+                .queryParam("api_key", apiKey)
+                .queryParam("page", page)
+                .toUriString();
         ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
-
         if (response.getStatusCode() == HttpStatus.OK && response.getBody() != null) {
-            return extractMovies(response.getBody());
+            List<Map<String, Object>> results = (List<Map<String, Object>>) response.getBody().get("results");
+            return results.stream().map(this::convertToMovie).collect(Collectors.toList());
         }
         return Collections.emptyList();
     }
+
 
     public List<Movie> searchMovies(String query) {
         String url = UriComponentsBuilder.fromHttpUrl("https://api.themoviedb.org/3/search/movie")

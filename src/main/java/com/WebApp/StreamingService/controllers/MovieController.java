@@ -28,12 +28,10 @@ public class MovieController {
     }
 
     @GetMapping
-    public String listMovies(Model model) {
-        List<Movie> movies = imdbService.fetchAllMovies();
-        if (movies != null) {
-            movies.forEach(movie -> System.out.println(movie.getImdbId()));  // Log to check IDs
-        }
+    public String listMovies(Model model, @RequestParam(defaultValue = "1") int page) {
+        List<Movie> movies = imdbService.fetchMoviesByCategory("popular", page);
         model.addAttribute("movies", movies);
+        model.addAttribute("currentPage", page);
         return "movielist";
     }
     @GetMapping("/details/{imdbId}")
