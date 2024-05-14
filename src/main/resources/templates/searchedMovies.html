@@ -16,10 +16,10 @@
     </div>
 </nav>
 <div class="container mt-4">
-    <h1>Search Results</h1>
+    <h1 style="color: white">Search Results</h1>
     <div class="row">
         <div th:each="movie : ${movies}" class="col-lg-3 col-md-4 col-sm-6">
-            <div class="card mb-4 movie-card">
+            <div class="movie-card">
                 <a th:href="@{/movies/details/{id}(id=${movie.imdbId})}">
                     <img th:src="${movie.posterPath}" alt="Movie Poster" class="card-img-top" onerror="this.onerror=null; this.src='/images/no-image-available.png';">
                 </a>

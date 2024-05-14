@@ -54,7 +54,10 @@ public class MovieController {
         return "searchedMovies";  // Ensure this view is properly set up to show results
     }
 
-
+@GetMapping("/")
+    public String home(){
+        return "redirect:/movielist";
+}
 
 
 
