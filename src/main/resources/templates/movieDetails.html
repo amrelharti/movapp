@@ -3,29 +3,39 @@
 <head>
     <title th:text="${movie.title}">Movie Details</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/detailstyle.css"> <!-- Correct path to your CSS file -->
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a href="/movies" class="navbar-brand">Movie Explorer</a>
+        <form th:action="@{/search}" method="get" class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search movies" aria-label="Search" name="query">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
 <div class="container mt-4">
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="movie-details-container">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img th:src="${movie.posterPath}" alt="Movie Poster" class="card-img">
+                <img th:src="${movie.posterPath}" alt="Movie Poster" class="card-img-top">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${movie.title}">Movie Title</h5>
+                    <h2 class="card-title" th:text="${movie.title}"></h2>
                     <p class="card-text"><small class="text-muted" th:text="${movie.year}">Year</small></p>
                     <p class="card-text" th:text="${movie.rating}">Rating</p>
                     <p class="card-text" th:text="${movie.description}">Description</p>
+                    <a href="/movies" class="btn btn-primary">Back to List</a>
                 </div>
             </div>
         </div>
     </div>
-    <a href="/" class="btn btn-primary">Back to List</a>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

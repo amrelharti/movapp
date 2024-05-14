@@ -49,6 +49,13 @@ public class MovieController {
         return "movieDetails";
 
     }
+    @GetMapping("/search")
+    public String searchMovies(@RequestParam("query") String query, Model model) {
+        List<Movie> movies = imdbService.searchMovies(query);
+        model.addAttribute("movies", movies);
+        return "searchedMovies";  // Ensure this view is properly set up to show results
+    }
+
 
 
 
