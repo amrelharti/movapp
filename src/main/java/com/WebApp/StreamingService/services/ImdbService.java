@@ -74,9 +74,9 @@ public class ImdbService {
         String id = String.valueOf(movieData.get("id"));
         String title = (String) movieData.get("title");
         String posterPath = "https://image.tmdb.org/t/p/w500" + movieData.get("poster_path");
-        String description = (String) movieData.get("overview"); // Assuming 'overview' is the field for description
+        String description = (String) movieData.get("overview");
         String releaseDate = (String) movieData.get("release_date");
-        double rating = (Double) movieData.get("vote_average"); // Assuming 'vote_average' is the field for rating
+        double rating = (Double) movieData.get("vote_average");
 
         Movie movie = new Movie(title, posterPath, id);
         movie.setDescription(description);

@@ -37,9 +37,9 @@ public class MovieController {
     @GetMapping("/details/{imdbId}")
     public String showMovieDetails(@PathVariable("imdbId") String imdbId, Model model) {
         Movie movie = imdbService.findMovieById(imdbId);
-        System.out.println("Retrieved movie: " + movie);  // Log the movie details
+        System.out.println("Retrieved movie: " + movie);
         if (movie == null) {
-            return "errorPage";  // Redirect to an error page if the movie is null
+            return "errorPage";
         }
         model.addAttribute("movie", movie);
         System.out.println("Movie Title: " + movie.getTitle());
@@ -51,7 +51,7 @@ public class MovieController {
     public String searchMovies(@RequestParam("query") String query, Model model) {
         List<Movie> movies = imdbService.searchMovies(query);
         model.addAttribute("movies", movies);
-        return "searchedMovies";  // Ensure this view is properly set up to show results
+        return "searchedMovies";
     }
 
 @GetMapping("/")
