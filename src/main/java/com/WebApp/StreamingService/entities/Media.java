@@ -24,7 +24,7 @@ public abstract class Media {
     private String imdbId;
     private String title;
     private String description;
-    private Date year;
+    private String year;
     private long id_genre;
     private long id_actor;
     private long id_director;

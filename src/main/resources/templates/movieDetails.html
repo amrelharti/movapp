@@ -3,13 +3,13 @@
 <head>
     <title th:text="${movie.title}">Movie Details</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/detailstyle.css"> <!-- Correct path to your CSS file -->
+    <link rel="stylesheet" href="/css/detailstyle.css"> <!-- Ensure this CSS file contains your styles -->
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a href="/movies" class="navbar-brand">Movie Explorer</a>
-        <form th:action="@{/search}" method="get" class="form-inline">
+        <form th:action="@{/movies/search}" method="get" class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search movies" aria-label="Search" name="query">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
@@ -27,7 +27,8 @@
                     <p class="card-text"><small class="text-muted" th:text="${movie.year}">Year</small></p>
                     <p class="card-text" th:text="${movie.rating}">Rating</p>
                     <p class="card-text" th:text="${movie.description}">Description</p>
-                    <a href="/movies" class="btn btn-primary">Back to List</a>
+                    <a th:href="@{'https://vidsrc.xyz/embed/movie/' + ${movie.imdbId}}" class="btn btn-primary" target="_blank">Watch Movie</a>
+                    <a href="/movies" class="btn btn-secondary">Back to List</a>
                 </div>
             </div>
         </div>
