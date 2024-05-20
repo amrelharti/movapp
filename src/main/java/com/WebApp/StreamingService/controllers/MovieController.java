@@ -54,11 +54,6 @@ public class MovieController {
         return "searchedMovies";
     }
 
-@GetMapping("/")
-    public String home(){
-        return "redirect:/movielist";
-}
-
 
 
 }

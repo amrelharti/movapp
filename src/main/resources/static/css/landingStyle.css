@@ -1,0 +1,47 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.navbar {
+    background-color: #ffffff; /* Light background for the navbar */
+}
+
+.container {
+    max-width: 700px; /* Adjust width as needed */
+    margin: auto; /* Center the container */
+    text-align: center; /* Center the text inside the container */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.btn-primary {
+    background-color: #0056b3; /* Custom primary color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; /* Rounded borders for buttons */
+}
+
+.btn-primary:hover {
+    background-color: #004494; /* Darker shade on hover */
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.welcome-message {
+    opacity: 0;  /* Start invisible */
+    animation: fadeIn 2s ease-in forwards;  /* Animate in */
+    animation-delay: 0.5s;  /* Delay the start of the animation */
+}
+
+/* Enhanced button hover effect */
+.btn-primary:hover {
+    background-color: #004494;
+    transform: scale(1.1);  /* Make the button slightly larger when hovered */
+    transition: background-color 0.2s, transform 0.2s;
+}
+

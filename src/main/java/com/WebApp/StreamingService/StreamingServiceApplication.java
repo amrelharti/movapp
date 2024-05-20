@@ -13,9 +13,5 @@ public class StreamingServiceApplication {
 		SpringApplication.run(StreamingServiceApplication.class, args);
 
 	}
-	@Bean
-	PasswordEncoder passwordEncoder(){
-		return  new BCryptPasswordEncoder();
-	}
 
 }
